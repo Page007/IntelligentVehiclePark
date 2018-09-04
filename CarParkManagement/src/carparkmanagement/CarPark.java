@@ -1,15 +1,17 @@
 // This class basically contains all the methods
 // pertaining to the mTHMtics of car park
 package carparkmanagement;
-import java.util.AbstractList;
+// import java.util.AbstractList;           ....not neccesary....
 import java.util.ArrayList;
+
 public class CarPark 
 {
     private static final int MAX_CAPACITY = 10;
-    private ArrayList <Vehicle>CarParkArray;
+    private final ArrayList <Vehicle>CarParkArray;
+    
     public CarPark()
     {
-        this.CarParkArray = new ArrayList <Vehicle>(MAX_CAPACITY);
+        this.CarParkArray = new ArrayList <>(MAX_CAPACITY);
     }
     public static int getMaxCapacity()
     {
@@ -23,23 +25,23 @@ public class CarPark
     {
         return MAX_CAPACITY - this.numOfOccupiedSpots();
     }
-    public boolean addVehicle(Vehicle vehicle)
+    
+    public void addVehicle(Vehicle vehicle)
     {
         if(this.numOfAvailableSpots() > 0)
         {
             this.CarParkArray.add(vehicle);
             System.out.println("Vehicle successfully added");
-            return true;
         }
         else
         {
             System.out.println("Vehicle cannot be accomodated");
-            return false;
         }
     }
+    
     public void removeVehicle(Vehicle vehicle)
     {
-        if(this.CarParkArray.size() != 0)
+        if(!this.CarParkArray.isEmpty())
         {
             vehicle.reduceCount();
             CarParkArray.remove(vehicle); 
