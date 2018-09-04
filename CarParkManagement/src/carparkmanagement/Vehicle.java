@@ -19,18 +19,24 @@ public class Vehicle
     private String color;
     private int numOfWheels;
     private String transmission;
+    
+    // Original Construct
     public Vehicle()
     {
     }
+    // Construct
     public Vehicle(String model, String color, int numOfWheels, String transmission)
     {
-        this.model = model; this.color = color; this.numOfWheels = numOfWheels;
+        this.model = model;
+        this.color = color;
+        this.numOfWheels = numOfWheels;
         this.transmission = transmission;
         if(this.numOfWheels == 2)
             bikeCount+=1;
         else
             carCount+=1;
     }
+    
     public String getModel()
     {
         return model;
@@ -47,6 +53,7 @@ public class Vehicle
     {
         return transmission;
     }
+    
     public void setModel(String setModel)
     {
         this.model = setModel;
@@ -66,10 +73,11 @@ public class Vehicle
     
     public void printDetails()
     {
-        System.out.println("Following are the details of the Bike");
+        System.out.println("Following are the details of the Bike");    // Why Bike? It can be any vehicle...
         System.out.print("Model : " + this.getModel() + "\nColor : " + this.getColor() + "\nNumber Of Wheels : " + this.getNumOfWheels());
         System.out.println("Transmission Type : " + this.getTransmission());
     }
+    
     public void reduceCount()
     {
         if(this.numOfWheels == 2)
